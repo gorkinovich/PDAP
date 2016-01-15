@@ -1,0 +1,80 @@
+﻿PDAP: Práctica 1
+Alumno: Gorka Suárez García
+
+Ejercicio 1
+===========
+
+f(), A=[{math:pow(2,64),muy,"grande"}|[4,5,B=math:pow(A,6)]].
+
+Al intentar ejecutar la expresión anterior devuelve:
+* 1: variable 'A' is unbound
+
+Esto lo que quiere decir es que la variable A en el cálculo del
+math:pow del final, no tiene ningún valor asignado.
+
+Ejercicio 2
+===========
+
+f(), io:format("Pon un punto al final para introducir datos.\n"), {_,A}=io:read("Dame el número A: "), {_,B}=io:read("Dame el número B: "), A+B.
+ 
+Ejercicio 3
+===========
+
+f(), io:format("Pon un punto al final para introducir datos.\n"), {_,S}=io:read("Introduce una cadena: "), R=(S=:=lists:reverse(S)), io:format("¿Es la cadena un palíndromo? ~w\n", [R]).
+
+Ejercicio 4
+===========
+
+f(), Rev=fun(S) -> (lists:reverse(S) =:= S) end.
+
+[Rev([a,bb,c,bb]), Rev([3,bb,bb,3]), Rev("dabalearrozalazorraelabad")].
+Resultado: [false,true,true]
+
+-------------
+| Anotación |
+-------------
+{square, {x,y}, l}
+{rectangle, {x,y}, lx, ly}
+
+Ejercicio 5
+===========
+
+f(), C={square, {1,2}, 4}, {square, _, L}=C, L*L.
+
+Ejercicio 6
+===========
+
+f(), L=[{rectangle, {2,1}, 4, 6}, {square, {1,2}, 6}, {square, {3,4}, 4}], {_,{_,_,N}}=lists:keysearch(square, 1, L), N*N.
+
+Ejercicio 7
+===========
+
+f(), R={rectangle, {2,1}, 4, 6}, {_, P, L, L}=R, {square, P, L}.
+f(), R={rectangle, {2,1}, 4, 4}, {_, P, L, L}=R, {square, P, L}.
+
+Ejercicio 8
+===========
+
+f(), S1={square, {1,1}, 6}, S2={square, {2,2}, 4}, {square,{X1,Y1},L1}=S1, {square,{X2,Y2},L2}=S2, (X1 =< X2) and (Y1 =< Y2) and ((X1 + L1) >= (X2 + L2)) and ((Y1 + L1) >= (Y2 + L2)).
+
+f(), S1={square, {1,1}, 6}, S2={square, {2,2}, 5}, {square,{X1,Y1},L1}=S1, {square,{X2,Y2},L2}=S2, (X1 =< X2) and (Y1 =< Y2) and ((X1 + L1) >= (X2 + L2)) and ((Y1 + L1) >= (Y2 + L2)).
+
+f(), S1={square, {1,1}, 6}, S2={square, {3,4}, 4}, {square,{X1,Y1},L1}=S1, {square,{X2,Y2},L2}=S2, (X1 =< X2) and (Y1 =< Y2) and ((X1 + L1) >= (X2 + L2)) and ((Y1 + L1) >= (Y2 + L2)).
+
+f(), S1={square, {1,1}, 6}, S2={rectangle, {2,2}, 4, 6}, {square,{X1,Y1},L1}=S1, {square,{X2,Y2},L2}=S2, (X1 =< X2) and (Y1 =< Y2) and ((X1 + L1) >= (X2 + L2)) and ((Y1 + L1) >= (Y2 + L2)).
+
+Ejercicio 9
+===========
+
+f(), Cuadrado=fun(T) -> (element(1,T) =:= square) end.
+
+[Cuadrado({square,{7,8},11}), Cuadrado({rectangle,{7,8},11,14}), Cuadrado({square,tururu})].
+[true,false,true]
+
+Ejercicio 10
+============
+
+f(), IsSquare=fun(T) -> (element(1,T) =:= square) end, GetArea=fun({square,_,L}) -> (L * L) end, Cs=fun(L) -> lists:map(GetArea, lists:filter(IsSquare, L)) end.
+
+Cs([{square,{4,5},5},{rectangle,{0,0},8,8},{square,{1,2},8}]).
+[25,64]
