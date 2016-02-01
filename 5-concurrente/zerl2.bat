@@ -1,1 +1,1 @@
-C:\Development\Erlang\bin\erl.exe -sname Hamperdine
+START /B C:\Development\Erlang\bin\werl.exe -sname Hamperdine

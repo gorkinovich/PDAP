@@ -1,1 +1,1 @@
-C:\Development\Erlang\bin\erl.exe -sname Gendis
+START /B C:\Development\Erlang\bin\werl.exe -sname Gendis
